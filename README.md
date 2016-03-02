@@ -24,5 +24,5 @@ bash 1.sh --drupal_path=/usr/share/nginx/www --drupal_user=root
 SSH Key
 
 ```
-ssh-keygen -b 4096 -f devlop_server
+ssh-keygen -b 4096 -f devlop_server.key
 ```
