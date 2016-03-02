@@ -30,12 +30,13 @@ RUN apt-get install nano wget git vim openssh-server supervisor -y
 RUN  mkdir -p /usr/share/nginx/www
 RUN mkdir -p /var/log/supervisor
 
-# Setup SSH.
 RUN echo 'root:root' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 RUN mkdir /var/run/sshd && chmod 0755 /var/run/sshd
 RUN mkdir -p /root/.ssh/ && touch /root/.ssh/authorized_keys
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+ADD id_rsa /root/.ssh/id_rsa
 
 
 # drush
