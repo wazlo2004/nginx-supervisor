@@ -19,3 +19,11 @@ you can user 1.sh
 
 cd /  
 bash 1.sh --drupal_path=/usr/share/nginx/www --drupal_user=root
+
+
+SSH Key
+
+```
+ssh-keygen -b 4096
+```
+
