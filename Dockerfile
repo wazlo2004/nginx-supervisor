@@ -25,6 +25,7 @@ RUN  apt-get install php5-fpm -y
 RUN  apt-get install php5-mysql -y
 RUN  apt-get install php5-gd -y
 RUN  apt-get install php5-cli -y
+RUN  apt-get install php5-curl -y
 
 RUN apt-get install nano wget git vim openssh-server supervisor -y
 RUN  mkdir -p /usr/share/nginx/www
@@ -38,7 +39,7 @@ RUN echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 RUN mkdir /var/run/sshd && chmod 0755 /var/run/sshd
 RUN mkdir -p /root/.ssh/
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-ADD devlop_server.key  /root/.ssh/authorized_keys
+ADD develop_server.key.pub  /root/.ssh/authorized_keys
 
 
 
